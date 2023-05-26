@@ -63,7 +63,7 @@ if (isset($_SESSION["username"])) {header ("location:index.php");}
               <label for="right-label" class="right inline">First Name</label>
             </div>
             <div class="small-8 columns">
-              <input type="text" id="right-label" placeholder="Nayan" name="fname">
+              <input type="text" id="right-label" placeholder="Shafiq" name="fname">
             </div>
           </div>
           <div class="row">
@@ -103,7 +103,7 @@ if (isset($_SESSION["username"])) {header ("location:index.php");}
               <label for="right-label" class="right inline">E-Mail</label>
             </div>
             <div class="small-8 columns">
-              <input type="email" id="right-label" placeholder="nayantronix@gmail.com" name="email">
+              <input type="email" id="right-label" placeholder="muhammadshafiq457@gmail.com" name="email">
             </div>
           </div>
           <div class="row">

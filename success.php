@@ -10,7 +10,7 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Art Gallery</title>
+    <title>Order Successful || Art Gallery</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
@@ -52,8 +52,9 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 
     <div class="row" style="margin-top:10px;">
       <div class="small-12">
-        <p>Success. Whatever task you performed, has been executed successfully. Congrats!</p>
-        <p>In case you purchased a product, then please check your spam in email for the receipt.</p>
+        <p>Thank you for your order from Art Gallery!</p>
+        <p>Your order has been successfully processed. You will receive an email with the details of your purchase shortly.</p>
+        <p>If you don't receive the email, please check your spam folder.</p>
 
 
         <footer style="margin-top:10px;">
@@ -62,11 +63,6 @@ if(session_id() == '' || !isset($_SESSION)){session_start();}
 
       </div>
     </div>
-
-
-
-
-
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>

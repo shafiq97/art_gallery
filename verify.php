@@ -13,13 +13,12 @@ $flag = 'true';
 $result = $mysqli->query('SELECT id,email,password,fname,type from users order by id asc');
 
 if($result === FALSE){
-  die(mysql_error());
+  die(mysqli_error($mysqli));
 }
 
 if($result){
   while($obj = $result->fetch_object()){
     if($obj->email === $username && $obj->password === $password) {
-
       $_SESSION['username'] = $username;
       $_SESSION['type'] = $obj->type;
       $_SESSION['id'] = $obj->id;

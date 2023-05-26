@@ -6,7 +6,6 @@ if (session_id() == '' || !isset($_SESSION)) {
   session_start();
 }
 
-
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +14,7 @@ if (session_id() == '' || !isset($_SESSION)) {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Us || Art Gallery</title>
+  <title>About Art Gallery</title>
   <link rel="stylesheet" href="css/foundation.css" />
   <script src="js/vendor/modernizr.js"></script>
 </head>
@@ -33,7 +32,7 @@ if (session_id() == '' || !isset($_SESSION)) {
     <section class="top-bar-section">
       <!-- Right Nav Section -->
       <ul class="right">
-        <li class="active"><a href="about.php">About</a></li>
+        <li><a href="about.php">About</a></li>
         <li><a href="products.php">Products</a></li>
         <li><a href="cart.php">View Cart</a></li>
         <li><a href="orders.php">My Orders</a></li>
@@ -52,16 +51,15 @@ if (session_id() == '' || !isset($_SESSION)) {
     </section>
   </nav>
 
-
-
-
   <div class="row" style="margin-top:30px;">
     <div class="small-12">
-      <p>Art Gallery is a project on E-Commerce Website. All products listed are fake. This project just gives a preview to what a real world implementation of E-Commerce Website will look like. Well if you do like the website then visit
-        <a href="http://www.techbarrack.com" target="_blank" rel="noopener noreferrer" title="Tech Barrack Solutions">Tech Barrack Solutions</a>.
-      </p>
+      <p>Welcome to Art Gallery, your online destination for exquisite art pieces. We showcase a wide collection of artwork created by talented artists from around the world.</p>
 
-      <p>Why BOLT? I am a big fan of Usain Bolt. He is diligent and tries to surpass his previous achievements. And lastly, it was an instant thought. So went for it.</p>
+      <p>Our mission is to connect art enthusiasts with captivating and inspiring pieces that evoke emotions and spark creativity. Whether you're an avid collector or a novice exploring the art world, Art Gallery offers a diverse range of paintings, sculptures, photographs, and more.</p>
+
+      <p>Each artwork featured on our platform is carefully curated to ensure exceptional quality and artistic value. We strive to foster a community that appreciates and supports the arts.</p>
+
+      <p>Explore our gallery and immerse yourself in the beauty and expression of art. We hope you find pieces that resonate with you and add a touch of elegance to your living or working space.</p>
 
       <footer>
         <p style="text-align:center; font-size:0.8em;">&copy; Art Gallery. All Rights Reserved.</p>
