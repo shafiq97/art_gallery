@@ -8,8 +8,15 @@
       <li class="nav-item">
         <a class="nav-link" href="../admin/manage_users.php">Manage Users</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="insert_art.php">Insert Art</a>
+      <!-- Dropdown Menu for Art Management -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="artManagementDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Art Management
+        </a>
+        <div class="dropdown-menu" aria-labelledby="artManagementDropdown">
+          <a class="dropdown-item" href="insert_art.php">Insert Art</a>
+          <a class="dropdown-item" href="manage_art.php">Art List</a>
+        </div>
       </li>
       <?php
       if (isset($_SESSION['username'])) {
