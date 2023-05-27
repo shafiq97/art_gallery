@@ -24,7 +24,7 @@ if($result){
       $_SESSION['id'] = $obj->id;
       $_SESSION['fname'] = $obj->fname;
       if($obj->type == "admin"){
-        header("location:admin.php");
+        header("location:admin/manage_users.php");
       }else{
         header("location:index.php");
       }

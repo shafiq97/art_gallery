@@ -25,41 +25,24 @@ include '../config.php';
   <link rel="stylesheet" href="../css/foundation.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
   <script src="../js/vendor/modernizr.js"></script>
+  <style>
+    .wrap-text-table td {
+      white-space: normal;
+      /* This will make the text wrap */
+      word-break: break-all;
+      /* This will break words as necessary to prevent overflow */
+    }
+  </style>
+
 </head>
 
 <body>
 
-  <nav class="top-bar" data-topbar role="navigation">
-    <ul class="title-area">
-      <li class="name">
-        <h1><a href="index.php">Art Gallery</a></h1>
-      </li>
-      <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-    </ul>
-
-    <section class="top-bar-section">
-      <!-- Right Nav Section -->
-      <ul class="right">
-        <li class="active"><a href="manage_users.php">Manage Users</a></li>
-        <?php
-
-        if (isset($_SESSION['username'])) {
-          echo '<li><a href="../account.php">My Account</a></li>';
-          echo '<li><a href="../logout.php">Log Out</a></li>';
-        } else {
-          echo '<li><a href="login.php">Log In</a></li>';
-          echo '<li><a href="register.php">Register</a></li>';
-        }
-        ?>
-      </ul>
-    </section>
-  </nav>
-
-
+  <?php include 'header.php' ?>
   <div class="row" style="margin-top:10px;">
     <div class="large-12">
       <h3>Manage Users</h3>
-      <table id="userTable" class="display">
+      <table id="userTable" class="display wrap-text-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -103,7 +86,7 @@ include '../config.php';
   <script>
     $(document).foundation();
 
-    $(document).ready(function() {
+    $(document).ready(function () {
       $('#userTable').DataTable();
     });
   </script>

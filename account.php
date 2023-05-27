@@ -9,10 +9,6 @@ if(!isset($_SESSION["username"])) {
   header("Refresh: 3; url=index.php");
 }
 
-if($_SESSION["type"]==="admin") {
-  header("location:admin.php");
-}
-
 include 'config.php';
 
 ?>
@@ -88,7 +84,7 @@ include 'config.php';
                 $result = $mysqli->query('SELECT * FROM users WHERE id='.$_SESSION['id']);
 
                 if($result === FALSE){
-                  die(mysql_error());
+                  die(mysqli_error($mysqli));
                 }
 
                 if($result) {
