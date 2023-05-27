@@ -38,18 +38,15 @@ if (isset($_GET['id'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>User Details || Art Gallery</title>
   <link rel="stylesheet" href="../css/foundation.css" />
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
   <style>
     body {
       background-color: #f9f9f9;
       font-family: Arial, sans-serif;
       color: #333;
       line-height: 1.5;
-    }
-
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
     }
 
     h1 {
@@ -109,6 +106,10 @@ if (isset($_GET['id'])) {
   <script>
     $(document).foundation();
   </script>
+  
+  <!-- Include Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
