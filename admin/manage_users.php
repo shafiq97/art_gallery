@@ -24,6 +24,7 @@ include '../config.php';
   <title>Manage Users || Art Gallery</title>
   <link rel="stylesheet" href="../css/foundation.css" />
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
   <script src="../js/vendor/modernizr.js"></script>
   <style>
     .wrap-text-table td {
@@ -90,6 +91,9 @@ include '../config.php';
       $('#userTable').DataTable();
     });
   </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
