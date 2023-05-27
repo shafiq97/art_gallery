@@ -1,7 +1,4 @@
 <?php
-
-//if (session_status() !== PHP_SESSION_ACTIVE) {session_start();} for php 5.4 and above
-
 if (session_id() == '' || !isset($_SESSION)) {
   session_start();
 }
@@ -12,164 +9,77 @@ if (!isset($_SESSION["username"])) {
 }
 
 include '../config.php';
-
 ?>
-
 
 <!doctype html>
 <html class="no-js" lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Account || Art Gallery</title>
-  <link rel="stylesheet" href="../css/foundation.css" />
-  <script src="../js/vendor/modernizr.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
+
 <body>
 
-<?php include 'header.php' ?>
+  <?php include 'header.php' ?>
 
-  <div class="row" style="margin-top:30px;">
-    <div class="small-12">
-      <p>
-        <?php echo '<h3>Hi ' . $_SESSION['fname'] . '</h3>'; ?>
-      </p>
+  <div class="container" style="margin-top:30px;">
+    <h3>Hi
+      <?php echo $_SESSION['fname']; ?>
+    </h3>
+    <h4>Account Details</h4>
+    <p>Below are your details in the database. If you wish to change anything, then just enter new data in text box
+      and click on update.</p>
 
-      <p>
-      <h4>Account Details</h4>
-      </p>
+    <form method="POST" action="update.php" style="margin-top:30px;">
+      <?php
+      $result = $mysqli->query('SELECT * FROM users WHERE id=' . $_SESSION['id']);
 
-      <p>Below are your details in the database. If you wish to change anything, then just enter new data in text box
-        and click on update.</p>
-    </div>
-  </div>
+      if ($result === FALSE) {
+        die(mysqli_error($mysqli));
+      }
 
+      if ($result) {
+        $obj    = $result->fetch_object();
+        $fields = ['fname' => 'First Name', 'lname' => 'Last Name', 'address' => 'Address', 'city' => 'City', 'pin' => 'Pin Code', 'email' => 'Email'];
 
-  <form method="POST" action="update.php" style="margin-top:30px;">
-    <div class="row">
-      <div class="small-12">
+        foreach ($fields as $field => $label) {
+          echo '<div class="form-group row">';
+          echo '<label for="' . $field . '" class="col-sm-2 col-form-label">' . $label . '</label>';
+          echo '<div class="col-sm-10">';
+          echo '<input type="text" class="form-control" id="' . $field . '" placeholder="' . $obj->$field . '" name="' . $field . '">';
+          echo '</div>';
+          echo '</div>';
+        }
 
-        <div class="row">
-          <div class="small-3 columns">
-            <label for="right-label" class="right inline">First Name</label>
-          </div>
-          <div class="small-8 columns end">
-            <?php
+        echo '<div class="form-group row">';
+        echo '<label for="password" class="col-sm-2 col-form-label">Password</label>';
+        echo '<div class="col-sm-10">';
+        echo '<input type="password" class="form-control" id="password" name="pwd">';
+        echo '</div>';
+        echo '</div>';
+      }
+      ?>
 
-            $result = $mysqli->query('SELECT * FROM users WHERE id=' . $_SESSION['id']);
-
-            if ($result === FALSE) {
-              die(mysqli_error($mysqli));
-            }
-
-            if ($result) {
-              $obj = $result->fetch_object();
-              echo '<input type="text" id="right-label" placeholder="' . $obj->fname . '" name="fname">';
-
-              echo '</div>';
-              echo '</div>';
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">Last Name</label>';
-              echo '</div>';
-              echo '<div class="small-8 columns end">';
-
-              echo '<input type="text" id="right-label" placeholder="' . $obj->lname . '" name="lname">';
-
-              echo '</div>';
-              echo '</div>';
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">Address</label>';
-              echo '</div>';
-              echo '<div class="small-8 columns end">';
-              echo '<input type="text" id="right-label" placeholder="' . $obj->address . '" name="address">';
-
-
-
-              echo '</div>';
-              echo '</div>';
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">City</label>';
-              echo '</div>';
-              echo '<div class="small-8 columns end">';
-              echo '<input type="text" id="right-label" placeholder="' . $obj->city . '" name="city">';
-              echo '</div>';
-              echo '</div>';
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">Pin Code</label>';
-              echo '</div>';
-              echo '<div class="small-8 columns end">';
-
-              echo '<input type="text" id="right-label" placeholder="' . $obj->pin . '" name="pin">';
-
-              echo '</div>';
-              echo '</div>';
-
-              echo '<div class="row">';
-              echo '<div class="small-3 columns">';
-              echo '<label for="right-label" class="right inline">Email</label>';
-              echo '</div>';
-
-              echo '<div class="small-8 columns end">';
-
-
-              echo '<input type="email" id="right-label" placeholder="' . $obj->email . '" name="email">';
-
-              echo '</div>';
-              echo '</div>';
-            }
-
-
-
-            echo '<div class="row">';
-            echo '<div class="small-3 columns">';
-            echo '<label for="right-label" class="right inline">Password</label>';
-            echo '</div>';
-            echo '<div class="small-8 columns end">';
-            echo '<input type="password" id="right-label" name="pwd">';
-
-            echo '</div>';
-            echo '</div>';
-            ?>
-
-            <div class="row">
-              <div class="small-4 columns">
-
-              </div>
-              <div class="small-8 columns">
-                <input type="submit" id="right-label" value="Update"
-                  style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
-                <input type="reset" id="right-label" value="Reset"
-                  style="background: #0078A0; border: none; color: #fff; font-family: 'Helvetica Neue', sans-serif; font-size: 1em; padding: 10px;">
-              </div>
-            </div>
-          </div>
+      <div class="form-group row">
+        <div class="col-sm-10">
+          <button type="submit" class="btn btn-primary">Update</button>
+          <button type="reset" class="btn btn-secondary">Reset</button>
         </div>
-  </form>
-
-
-
-  <div class="row" style="margin-top:30px;">
-    <div class="small-12">
-
-      <footer>
-        <p style="text-align:center; font-size:0.8em;">&copy; Art Gallery. All Rights Reserved.</p>
-      </footer>
-
-    </div>
+      </div>
+    </form>
   </div>
 
-  <script src="../js/vendor/jquery.js"></script>
-  <script src="../js/foundation.min.js"></script>
-  <script>
-    $(document).foundation();
-  </script>
+  <footer class="footer mt-auto py-3">
+    <div class="container">
+      <p style="text-align:center; font-size:0.8em;">&copy; Art Gallery. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </body>
+
 </html>

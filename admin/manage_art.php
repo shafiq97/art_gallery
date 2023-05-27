@@ -12,6 +12,11 @@ if ($_SESSION["type"] != "admin") {
 }
 
 include '../config.php';
+
+$msg = '';
+if (isset($_GET['msg'])) {
+  $msg = $_GET['msg'];
+}
 ?>
 
 <!doctype html>
@@ -29,6 +34,11 @@ include '../config.php';
 
   <div class="container" style="margin-top:10px;">
     <div class="col-md-12">
+      <?php if ($msg !== ''): ?>
+        <div class="alert alert-success" role="alert">
+          <?php echo $msg; ?>
+        </div>
+      <?php endif; ?>
       <h3>Manage Art</h3>
       <table class="table table-striped">
         <thead>
@@ -58,7 +68,7 @@ include '../config.php';
               echo '<td>' . $row['price'] . '</td>';
               echo '<td>';
               echo '<a class="btn btn-primary" href="update_art.php?id=' . $row['id'] . '">Update</a> ';
-              echo '<a class="btn btn-danger" href="delete_art.php?id=' . $row['id'] . '">Delete</a>';
+              echo '<a class="btn btn-danger" onclick="return confirm(\'Are you sure you want to delete this?\')" href="delete_art.php?id=' . $row['id'] . '">Delete</a>';
               echo '</td>';
               echo '</tr>';
             }
